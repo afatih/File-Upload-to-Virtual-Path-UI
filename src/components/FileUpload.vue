@@ -40,7 +40,6 @@ export default {
     };
   },
   methods: {
-    bildirim() {},
     onSelect() {
       const file = this.$refs.file.files[0];
       this.file = file;
