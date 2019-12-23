@@ -3,7 +3,18 @@
     <form @submit.prevent="onSubmit" enctype="multipart/form-data">
       <div class="fields">
         <label for="file">Upload File</label>
-        <input class="form-control" required type="file" ref="file" id="file" @change="onSelect" />
+        <div class="custom-file">
+          <input
+            type="file"
+            class="custom-file-input"
+            required
+            ref="file"
+            id="file"
+            @change="onSelect"
+          />
+          <label class="custom-file-label" for="customFile">{{selectedFile}}</label>
+        </div>
+        <!-- <input class="form-control" required type="file" ref="file" id="file" @change="onSelect" /> -->
       </div>
       <div class="fields">
         <label for="path">Upload Path</label>
@@ -12,13 +23,13 @@
           required
           type="text"
           v-model="path"
-          placeholder="Folder1/User/Soft/"
+          placeholder="Ex:Folder1/User/Soft/"
           id="path"
         />
         <div class="pathMessage">{{pathMessage}}</div>
       </div>
       <div class="fields">
-        <button type="submit" class="btn btn-info">Submit</button>
+        <button type="submit" class="btn btn-submit">Submit</button>
       </div>
     </form>
     <notifications group="foo" />
@@ -36,12 +47,14 @@ export default {
     return {
       file: "",
       path: "",
-      pathMessage: ""
+      pathMessage: "",
+      selectedFile: "Choose file"
     };
   },
   methods: {
     onSelect() {
       const file = this.$refs.file.files[0];
+      this.selectedFile = file.name;
       this.file = file;
     },
     onSubmit() {
@@ -57,7 +70,6 @@ export default {
         return;
       }
       formData.append("file", this.file);
-      formData.append("path", this.path);
 
       axios
         .post("http://localhost:2525/api/folder", formData, {
@@ -68,16 +80,19 @@ export default {
         })
         .then(() => {
           this.refreshNodes();
+
           this.pathMessage = "";
           this.path = "";
+          this.selectedFile = "Choose file";
           const inputFile = this.$refs.file;
           inputFile.type = "text";
           inputFile.type = "file";
+
           this.$notify({
             group: "foo",
             title: "Success",
             type: "success",
-            text: "file uploaded successfully"
+            text: "File uploaded successfully"
           });
         })
         .catch(e => {
@@ -103,5 +118,11 @@ export default {
 }
 .pathMessage {
   color: red;
+}
+
+.btn-submit {
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  color: #495057;
 }
 </style>

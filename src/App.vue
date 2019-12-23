@@ -1,9 +1,9 @@
 <template>
   <div id="app" >
-    <div class="col-lg-8" style="float:left;margin-top:20px">
+    <div class="col-lg-8 col-md-7" style="float:left;margin-top:20px">
       <tree-view-custom ref="treeviewCustomComponent"></tree-view-custom>
     </div>
-    <div class="col-lg-4" style="float:left">
+    <div class="col-lg-4 col-md-5" style="float:left">
       <file-upload @nodesChanged="onRefreshNode"></file-upload>
     </div>
     <notifications group="foo" />
@@ -43,7 +43,7 @@ export default {
               group: "foo",
               title: "Success",
               type: "success",
-              text: "file deleted successfully"
+              text: "File deleted successfully"
             });
             this.$refs.treeviewCustomComponent.refreshNodes();
           })
@@ -60,3 +60,14 @@ export default {
   }
 };
 </script>
+
+
+<style scoped>
+  #app>:first-child{
+    float:left;
+    margin-top:20px;
+  }
+  #app>:last-child{
+    float:left
+  }
+</style>

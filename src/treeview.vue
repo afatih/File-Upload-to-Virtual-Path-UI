@@ -33,7 +33,9 @@ export default {
       default: () => ({
         closed: "plus-square",
         opened: "minus-square",
-        default: "truck-loading"
+        default: "arrow-right",
+        // default: "truck-loading",
+
       })
     },
     editable: {
