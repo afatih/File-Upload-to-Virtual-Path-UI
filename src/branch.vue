@@ -14,7 +14,7 @@
           router-link(:to="{ [link.key]: link.value }", v-if="link.type === 'router-link'").value
             fa(:icon="defaultIcon")
             | {{ text }}
-          a(:href="link.value", target="_blank" v-else).value
+          a(:href="link.value",  v-else).value
             fa(:icon="defaultIcon")
             | {{ text }}
           span(@click="deleteFolder(link.type)",  v-show="editable").edit Delete
