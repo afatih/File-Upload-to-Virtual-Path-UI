@@ -1,5 +1,7 @@
 # File Upload To Virtual Path
 
+![Project picture](https://github.com/afatih/FileUploadVirtualPath_UIWithVue/edit/master/README.md)
+
 ## Project setup
 ```
 npm install
