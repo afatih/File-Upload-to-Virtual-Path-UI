@@ -1,6 +1,6 @@
 # File Upload To Virtual Path
 
-![Project picture](https://github.com/afatih/FileUploadVirtualPath_UIWithVue/edit/master/README.md)
+![Project picture](https://github.com/afatih/FileUploadVirtualPath_UIWithVue/blob/master/ss/vue1.png)
 
 ## Project setup
 ```
