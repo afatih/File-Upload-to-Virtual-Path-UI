@@ -1,5 +1,5 @@
 # File Upload To Virtual Path
-[Click here for this project's Server Side(with ASP .Net Web API)](https://github.com/afatih/File-Upload-to-Virtual-Path-Server-Side "Server Side")
+[Click here to see this project's Server Side(with ASP .Net Web API)](https://github.com/afatih/File-Upload-to-Virtual-Path-Server-Side "Server Side")
 
 ## Project View
 
